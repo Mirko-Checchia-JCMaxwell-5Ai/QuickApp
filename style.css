@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body {
+	font-family: 'Roboto', sans-serif;
+	background: #E64A19;
+	color: #FFFFFF;
+}
+
+/* PRIMA PAGINA */
+#main-box {
+	width: 200px;
+	margin: 100px auto;
+	text-align: center;
+}
+
+/* ISCRIVITI */
+#entry-box {
+	width: 96%;
+	margin: 0 2%;
+}
+
+	#entry-box #conferma-box {
+		height: auto;
+		width: 95%;
+		text-align: right;
+		margin: 10px 5% 0 0;
+	}
+
+/* ACCEDI */
+#login-box {
+	width: 96%;
+	margin: 0 2%;
+}
+
+	#login-box #accedi-box {
+		height: auto;
+		width: 95%;
+		text-align: right;
+		margin: 10px 5% 0 0;
+	}
+
+/* ACCEDI */
+#forgot-box {
+	width: 96%;
+	margin: 0 2%;
+}
+
+	#forgot-box #recuper-box {
+		height: auto;
+		width: 95%;
+		text-align: right;
+		margin: 10px 5% 0 0;
+	}

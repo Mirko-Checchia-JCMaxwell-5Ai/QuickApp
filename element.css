@@ -1,0 +1,38 @@
+/* BOTTONI */
+.main-button {
+	background: #FFFFFF;
+	color: #E64A19;
+	border-radius: 3px;
+	padding: 15px;
+	width: 150px;
+	border: none;
+	outline: none;
+}
+
+.second-button {
+	background: #1F1F1F;
+	color: #FFFFFF;
+	border-radius: 3px;
+	padding: 15px;
+	width: 150px;
+	border: none;
+	outline: none;
+}
+
+/* INPUT */
+.main-input {
+	background: #FFFFFF;
+	color: #1F1F1F;
+	border-radius: 3px;
+	padding: 10px;
+	width: 90%;
+	border: none;
+	outline: none;
+	margin: 0 5%;
+}
+
+/* LINK */
+.main-link {
+	color: #ffffff;
+	text-decoration: none;
+}
