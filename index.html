@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <title>Quick App</title>
+		<script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+		<script src="script/quickbase.js"></script> 
+    </head>
+    <body>
+        <h1>Prova</h1>
+		<button id="aggiungi">Aggiungi</button>
+    </body>
+	<script>
+	var qb = new quickbase('/message/');
+	
+	
+	var aggbutton = document.getElementById('aggiungi');
+	aggbutton.addEventListener('click', function() {
+		var data = {
+			from: 'mirko',
+			to: 'user',
+			text: 'prova',
+			date: new Date().getTime()
+		}
+		
+		qb.add(data);
+	})
+
+		var accesso = window.localStorage.getItem('access')
+
+		if (accesso == 1) {
+			window.location.href = 'listchat.html'
+		}
+		else {
+			window.location.href = 'main.html'
+		}
+	</script>
+</html>

@@ -1,0 +1,64 @@
+<html>
+<head>
+	<meta name="viewport" content="min-width=1px, max-width=400px, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+	<style>
+		@import url(css/style.css);
+		@import url(css/element.css);
+	</style>
+	<script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+	<script src="script/quickbase.js"></script> 
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+</head>
+<body>
+	<div id="entry-box">
+		<h1>QuickApp</h1>
+		<h3><i>I tuoi dati:<i></h3><br>
+
+		<p>Nome: </p>
+		<input type="text" name="nome" id="nome" class="main-input "><br>
+		<p>Cognome: </p>
+		<input type="text" name="cognome" id="cognome" class="main-input"><br>
+		<p>Numero di telefono: </p>
+		<input type="number" name="numero" id="numero" class="main-input"><br>
+		<p>Mail: </p>
+		<input type="email" name="mail" id="mail" class="main-input"><br>
+		<p>QuickUser: </p>
+		<input type="text" name="id" id="id" class="main-input"><br>
+		<p>Password: </p>
+		<input type="password" name="password" id="password" class="main-input"><br><br>
+		<div id="conferma-box">
+			<button id="conferma" class="second-button">CONFERMA</button>
+		</div>
+		
+	</div>
+	<script>
+		var qb = new quickbase('/user/');
+
+		var conferma = document.getElementById('conferma');
+		var nome = document.getElementById('nome');
+		var cognome = document.getElementById('cognome');
+		var numero = document.getElementById('numero');
+		var mail = document.getElementById('mail');
+		var id = document.getElementById('id');
+		var password = document.getElementById('password');
+
+		conferma.addEventListener('click', function () {
+			var key = "1234";
+
+
+			var utente = {
+				nome: CryptoJS.AES.encrypt(nome.value, key).toString(),
+				cognome: CryptoJS.AES.encrypt(cognome.value, key).toString(),
+				numero: CryptoJS.AES.encrypt(numero.value, key).toString(),
+				mail: CryptoJS.AES.encrypt(mail.value, key).toString(),
+				id: CryptoJS.AES.encrypt(id.value, key).toString(),
+				password: CryptoJS.AES.encrypt(password.value, key).toString()
+			}
+			qb.add(utente);
+
+			//var decrypted = CryptoJS.AES.decrypt(encrypted, "1234").toString(CryptoJS.enc.Utf8);;
+		})
+	</script>
+</body>
+</html>
