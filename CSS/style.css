@@ -1,10 +1,18 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
+html {
+	height: 100%;
+}
+
 body {
 	font-family: 'Roboto', sans-serif;
 	background: #E64A19;
 	color: #FFFFFF;
+	height: 100%;
+	margin: 0;
 }
+
+
 
 /* PRIMA PAGINA */
 #main-box {
@@ -51,3 +59,116 @@ body {
 		text-align: right;
 		margin: 10px 5% 0 0;
 	}
+
+/* BARRA LISTCHAT */
+#barra {
+	float: left;
+	width: 100%;
+	height: auto;
+	padding: 0 10px;
+	box-sizing: border-box;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, .50);
+	position: fixed;
+	z-index: 100;
+	background: #E64A19;
+}
+
+	#barra #sup {
+		float: left;
+		width: 100%;
+		height: 50px;
+	}
+
+		#barra #sup h1 {
+			float: left;
+			margin: 6px 0;
+		}
+
+		#barra #sup #setting {
+			float: right;
+			height: 50px;
+			width: 50px;
+			background: url(../img/settings.png) no-repeat center center;
+			background-size: 24px;
+			border: none;
+			outline: none;
+		}
+
+		#barra #sup #logout {
+			float: right;
+			height: 50px;
+			width: 50px;
+			background: url(../img/exit-to-app.png) no-repeat center center;
+			background-size: 24px;
+			border: none;
+			outline: none;
+		}
+
+	#barra #inf {
+		float: left;
+		width: 100%;
+		height: 50px;
+	}
+
+		#barra #inf button {
+			float: left;
+			width: 50%;
+			height: 50px;
+			background: none;
+			border: none;
+			outline: none;
+			color: #ffffff;
+			font-weight: bold;
+		}
+
+		#barra #inf button.select {
+			box-shadow: inset 0 -2px 0 #ffffff;
+		}
+
+/* CONTENT LISTCHAT */
+#content {
+	float: left;
+	width: 100%;
+	height: calc(100% - 100px);
+	background: #FFFFFF;
+	position: fixed;
+	top: 100px;
+	overflow-y: scroll;
+}
+
+/* CONTATTI */
+object {
+	float: left;
+	width: 100%;
+	height: 100%;
+}
+
+#listacontatti {
+	float: left;
+	width: 100%;
+	height: 100%;
+	background: #ffffff;
+	color: #000000;
+}
+
+	#listacontatti .element-contatti {
+		float: left;
+		width: 100%;
+		height: 66px;
+		padding: 3px 25px;
+		box-sizing: border-box;
+		border-bottom: 1px solid #d4d4d4;
+	}
+
+		#listacontatti .element-contatti h3 {
+			float: left;
+			width: 100%;
+			margin: 6px 0 1px 0;
+		}
+
+		#listacontatti .element-contatti p {
+			float: left;
+			width: 100%;
+			color: #989898;
+			margin: 2px 0 4px 0;
+		}
