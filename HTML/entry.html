@@ -1,14 +1,17 @@
+﻿<!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
 	<meta name="viewport" content="min-width=1px, max-width=400px, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 	<style>
 		@import url(css/style.css);
 		@import url(css/element.css);
 	</style>
 	<script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
-	<script src="script/quickbase.js"></script> 
+	<script src="script/quickbase.js"></script>
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+	<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script> -->
 </head>
 <body>
 	<div id="entry-box">
@@ -30,7 +33,7 @@
 		<div id="conferma-box">
 			<button id="conferma" class="second-button">CONFERMA</button>
 		</div>
-		
+
 	</div>
 	<script>
 		var qb = new quickbase('/user/');
@@ -48,15 +51,17 @@
 
 
 			var utente = {
-				nome: CryptoJS.AES.encrypt(nome.value, key).toString(),
-				cognome: CryptoJS.AES.encrypt(cognome.value, key).toString(),
-				numero: CryptoJS.AES.encrypt(numero.value, key).toString(),
-				mail: CryptoJS.AES.encrypt(mail.value, key).toString(),
-				id: CryptoJS.AES.encrypt(id.value, key).toString(),
-				password: CryptoJS.AES.encrypt(password.value, key).toString()
+				nome: nome.value,
+				cognome: cognome.value,
+				numero: numero.value,
+				mail: mail.value,
+				id: id.value,
+				password: password.value,
 			}
 			qb.add(utente);
+			window.location.href = 'login.html'
 
+			//CryptoJS.AES.encrypt(nome.value, key).toString(),
 			//var decrypted = CryptoJS.AES.decrypt(encrypted, "1234").toString(CryptoJS.enc.Utf8);;
 		})
 	</script>

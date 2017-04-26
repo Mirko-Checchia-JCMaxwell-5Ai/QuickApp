@@ -12,21 +12,6 @@
 		<button id="aggiungi">Aggiungi</button>
     </body>
 	<script>
-	var qb = new quickbase('/message/');
-	
-	
-	var aggbutton = document.getElementById('aggiungi');
-	aggbutton.addEventListener('click', function() {
-		var data = {
-			from: 'mirko',
-			to: 'user',
-			text: 'prova',
-			date: new Date().getTime()
-		}
-		
-		qb.add(data);
-	})
-
 		var accesso = window.localStorage.getItem('access')
 
 		if (accesso == 1) {

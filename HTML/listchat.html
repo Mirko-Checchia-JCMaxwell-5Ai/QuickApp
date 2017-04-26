@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+	<style>
+		@import url(css/style.css);
+		@import url(css/element.css);
+	</style>
+	<script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+	<script src="script/quickbase.js"></script>
+</head>
+<body>
+	<div id="barra">
+		<div id="sup">
+			<h1>QuickApp</h1>
+			<button id="logout"></button>
+			<button id="setting"></button>
+			
+		</div>
+		<div id="inf">
+			<button id="chat">CHAT</button>
+			<button id="contatti">CONTATTI</button>
+		</div>
+	</div>
+	<div id="content">
+
+	</div>
+	<script>
+		var chat = document.getElementById('chat');
+		var contatti = document.getElementById('contatti');
+		var logout = document.getElementById('logout');
+
+
+		logout.addEventListener('click', function () {
+			localStorage.removeItem('access')
+			localStorage.removeItem('id')
+
+			window.location.href = 'main.html'
+		})
+
+		setting.addEventListener('click', function () {
+			window.location.href = 'setting.html'
+		})
+
+
+		chat.addEventListener('click', function () {
+			contatti.classList.remove('select')
+			this.classList.add('select')
+
+			document.getElementById("content").innerHTML = '<object type="text/html" data="chat.html" ></object>';
+		})
+
+		contatti.addEventListener('click', function () {
+			chat.classList.remove('select')
+			this.classList.add('select')
+
+			document.getElementById("content").innerHTML = '<object type="text/html" data="contatti.html" ></object>';
+		})
+	</script>
+</body>
+</html>

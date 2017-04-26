@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+	<title>Quick App</title>
+	<style>
+		@import url(css/style.css);
+		@import url(css/element.css);
+	</style>
+	<script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+	<script src="script/quickbase.js"></script>
+</head>
+<body>
+	<div id="listacontatti">
+
+	</div>
+
+	<script>
+		var content = document.getElementById('listacontatti');
+
+		var qb = new quickbase('/user/')
+
+		qb.searchData({}, "nome", function (data) {
+			var html = '';
+
+			for (i = 0; i < data.length; i++) {
+				if (data[i]['id'] != localStorage.getItem('id')) {
+					html += "<span class=\"element-contatti\"><h3>" + data[i]['nome'] + " " + data[i]['cognome'] + "</h3><p>" + "@" + data[i]['id'] + "</p></span>"
+				}
+			}
+			content.innerHTML = html
+		})
+
+
+	</script>
+</body>
+</html>

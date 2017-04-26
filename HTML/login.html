@@ -1,10 +1,14 @@
+<!DOCTYPE html>
 <html>
 <head>
-	<meta name="viewport" content="min-width=1px, max-width=400px, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
 	<style>
 		@import url(css/style.css);
 		@import url(css/element.css);
 	</style>
+	<script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+	<script src="script/quickbase.js"></script>
 </head>
 <body>
 	<div id="login-box">
@@ -15,11 +19,44 @@
 		<input type="text" name="id" id="id" class="main-input"><br>
 		<p>Password: </p>
 		<input type="password" name="password" id="password" class="main-input"><br>
+		<div id="error" style="visibility: hidden">
+			<p>Accesso errato, riprova</p>
+		</div>
 		<br><br>
 		<div id="accedi-box">
 			<button id="accedi" class="second-button">ACCEDI</button><br><br>
 			<a href="forgot.html" class="main-link">Password dimenticata?</a>
 		</div>
 	</div>
+
+	<script>
+		var accedi = document.getElementById('accedi');
+
+		var qb = new quickbase('/user/');
+
+		var userCTRL = document.getElementById('id');
+		var passCTRL = document.getElementById('password');
+
+		var error = document.getElementById('error');
+
+		accedi.addEventListener('click', function () {
+			var CTRL = {
+				id: userCTRL.value,
+				password: passCTRL.value,
+			}
+
+			qb.searchData(CTRL, null, function (data) {
+				if (data.length == 1) {
+					window.localStorage.setItem('access', 1)
+					window.localStorage.setItem('id', userCTRL.value)
+					window.location.href = 'listchat.html'
+				}
+				else {
+					error.style.visibility = "visible"
+				}
+			})
+		})
+
+	</script>
 </body>
 </html>
